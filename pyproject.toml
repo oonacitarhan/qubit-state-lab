@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qubit-state-lab"
+version = "0.2.0"
+description = "Build small quantum circuits, inspect amplitudes and observables, and sample reproducible measurement shots."
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+include = ["qstate*"]

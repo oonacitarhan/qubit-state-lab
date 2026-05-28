@@ -1,0 +1,14 @@
+{
+  "qubits": 2,
+  "operations": [
+    {
+      "gate": "h",
+      "target": 0
+    },
+    {
+      "gate": "cx",
+      "control": 0,
+      "target": 1
+    }
+  ]
+}

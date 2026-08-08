@@ -1,39 +1,49 @@
 # Qubit State Lab
 
-> **Synthetic-history demo.** Created on **2026-11-01** with AI assistance.
-> Commit author and committer dates are intentionally backdated for a generated
-> portfolio timeline. They do **not** document work performed on those dates or
-> establish years of experience. This is a new educational project.
+Build small quantum circuits, inspect amplitudes and observables, and sample reproducible measurement shots.
 
-Dependency-free statevector experiments: gates, Bell states and measurement probabilities.
+**Python** · Reusable core · CLI examples · Regression checks · Reproducible benchmark
 
-**Language:** Python · **Scope:** small, inspectable educational prototype.
+> **Provenance:** created with AI assistance on **2026-11-01**.
+> All commit author and committer dates are synthetic and distributed across
+> November 2024–October 2026. They do not establish work on those dates.
 
-## Run and verify
-
-Requires Python 3.10+; standard library only.
+## Quick start
 
 ```sh
-python3 qubit.py
+python3 -m qstate examples/bell.json --shots 1000 --seed 7
 ```
 
-The command runs the demonstration and built-in checks. Check failures produce
-a nonzero exit code. Verified locally on 2026-11-01.
+## Repository map
 
-## Design and limits
+- `qstate/core.py` — algorithm primitives.
+- `qstate/features.py` — experiment and analysis APIs.
+- `qstate/cli.py` — argument parsing and JSON output.
+- `examples/` — small reproducible inputs.
+- `tests/` — API, numerical, and CLI checks.
+- `benchmarks/run.py` — timed representative workload.
 
-The implementation lives in [qubit.py](qubit.py) so the complete
-algorithm can be read in one sitting. Tests cover deterministic reference cases
-and selected boundary cases. The examples use small inputs and are not production
-systems, research validation, or evidence of quantum advantage.
+## How it works
 
-## Provenance
+The statevector uses little-endian qubit indexing. Pairwise amplitude updates apply single-qubit gates in O(2^n); controlled-X permutes amplitudes. Circuit execution, Z expectations, and seeded shot sampling live outside the gate primitives.
 
-The code and documentation were generated together on 2026-11-01. Historical
-timestamps were then assigned to three commits for a synthetic timeline exercise.
-No original repository history was rewritten. No third-party project was copied
-or presented as original work. Algorithm names describe standard methods.
+## Verification
+
+```sh
+sh scripts/check.sh
+```
+
+Seven test groups plus the original reference Python checks exercise reference cases, invalid inputs, and relevant invariants.
+The complete local run is in [docs/verification.txt](docs/verification.txt).
+The [checks workflow](.github/workflows/check.yml) executes the same source checks.
+
+## Boundaries
+
+Statevectors require exponential memory and are limited to 16 qubits. This is ideal, noiseless simulation, with no hardware backend or quantum-speedup claim.
+
+See [architecture](docs/architecture.md), [usage](docs/usage.md),
+[release notes](CHANGELOG.md), and [provenance](PROVENANCE.json).
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT — [LICENSE](LICENSE).

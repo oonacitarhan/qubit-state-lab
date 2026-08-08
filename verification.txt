@@ -1,5 +1,1 @@
-Actual verification date: 2026-11-01
-Command: python3 qubit.py
-
-Bell-state probabilities: [0.4999999999999999, 0.0, 0.0, 0.4999999999999999]
-Self-tests passed
+Superseded by docs/verification.txt; run sh scripts/check.sh.

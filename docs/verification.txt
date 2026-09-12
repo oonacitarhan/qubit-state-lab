@@ -1,11 +1,12 @@
 Actual local verification: 2026-11-01
 
 PASS test_cli.test_cli_rejects_unknown_argument
+PASS test_cli.test_documented_workflow
 PASS test_cli.test_help
 PASS test_features.test_bad_gate
 PASS test_features.test_normalization
 PASS test_features.test_ry
 PASS test_features.test_shot_support
 PASS test_reference.test_original_reference_cases
-7 tests passed
-{"workload": "execute(8,[{'gate':'h','target':q} for q in range(8)])", "repetitions": 5, "median_seconds": 0.001756908000970725, "min_seconds": 0.0017389019994880073}
+8 tests passed
+{"workload": "execute(8,[{'gate':'h','target':q} for q in range(8)])", "repetitions": 5, "median_seconds": 0.0023044990011840127, "min_seconds": 0.0018675020037335344}
